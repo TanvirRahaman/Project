@@ -1,12 +1,12 @@
 <?php
-// Start session and include DB connection
+
 session_start();
 include('../models/User.php');
 
 if (isset($_GET['id'])) {
     $userId = intval($_GET['id']);
 
-    // Delete query
+
     $sql = "DELETE FROM users WHERE id = $userId";
     
     if ($conn->query($sql) === TRUE) {
@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
     $_SESSION['message'] = "No user ID provided.";
 }
 
-// Redirect back to the user list
+
 header("Location: EmployeeList.php");
 exit();
 ?>

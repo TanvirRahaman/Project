@@ -2,7 +2,7 @@
 session_start();
 include('../models/User.php');
 
-// Check if manager is logged in
+
 $email = $_SESSION['manager_email'] ?? null;
 
 if (!$email) {
@@ -10,7 +10,7 @@ if (!$email) {
     exit();
 }
 
-// Fetch data from managers table
+
 $sql = "SELECT name, email, gender FROM managers WHERE email='$email'";
 $result = $conn->query($sql);
 $manager = $result->fetch_assoc();
@@ -26,13 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($conn->query($update_sql) === TRUE) {
         $showSuccessAlert = true;
-        $_SESSION['manager_email'] = $new_email; // Update session if email changes
+        $_SESSION['manager_email'] = $new_email; 
         $email = $new_email;
     } else {
         $message = "❌ Error updating profile: " . $conn->error;
     }
 
-    // Refresh data
+
     $sql = "SELECT name, email, gender FROM managers WHERE email='$email'";
     $result = $conn->query($sql);
     $manager = $result->fetch_assoc();

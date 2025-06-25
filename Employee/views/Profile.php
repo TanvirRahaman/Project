@@ -1,15 +1,15 @@
 <?php
-// profile.php
+
 session_start();
 include('../models/User.php');
 
-// Check if user is logged in
+
 if (!isset($_SESSION['email'])) {
     header("Location: Login.php");
     exit();
 }
 
-// Fetch user info from database
+
 $email = $_SESSION['email'];
 $sql = "SELECT name, email, gender FROM users WHERE email='$email'";
 $result = $conn->query($sql);
@@ -20,12 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $update_sql = "UPDATE users SET name='$new_name' WHERE email='$email'";
     if ($conn->query($update_sql) === TRUE) {
-        $message = "✅ Profile updated successfully!";
-        // Refresh user info
+        $message = " Profile updated successfully!";
+
         $result = $conn->query("SELECT name, email, gender FROM users WHERE email='$email'");
         $user = $result->fetch_assoc();
     } else {
-        $message = "❌ Error updating profile: " . $conn->error;
+        $message = " Error updating profile: " . $conn->error;
     }
 }
 

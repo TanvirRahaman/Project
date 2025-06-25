@@ -1,12 +1,12 @@
 <?php
 session_start();
-include('../models/User.php');  // Your DB connection file
+include('../models/User.php');  
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $conn->real_escape_string($_POST['email']);
     $password = $conn->real_escape_string($_POST['password']);
 
-    // Query the managers table (no hashing here)
+    // managers table
     $sql = "SELECT * FROM managers WHERE email='$email' AND password='$password' LIMIT 1";
     $result = $conn->query($sql);
 
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['manager_email'] = $manager['email'];
         $_SESSION['manager_name'] = $manager['name'];
 
-        // Redirect to manager home page
+        // manager home page
         header("Location: ../views/Home.php");
         exit();
     } else {
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 } else {
-    // If accessed directly, redirect to login
+    // login
     header("Location: ../views/Login.php");
     exit();
 }

@@ -1,16 +1,16 @@
 <?php
-// changepassword.php
+
 session_start();
 include('../models/User.php');
 
-// Handle password change
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_SESSION['email'];
     $current_password = $_POST['current_password'];
     $new_password = $_POST['new_password'];
     $confirm_new_password = $_POST['confirm_new_password'];
 
-    // Check if current password is correct
+
     $sql = "SELECT password FROM user WHERE email='$email'";
     $result = $conn->query($sql);
     $user = $result->fetch_assoc();
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif ($current_password === $new_password) {
         $message = "New password cannot be the same as the current password.";
     } else {
-        // Update the password
+
         $update_sql = "UPDATE users SET password='$new_password' WHERE email='$email'";
         if ($conn->query($update_sql) === TRUE) {
             $message = "Password updated successfully!";
@@ -102,9 +102,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             var currentPassword = document.getElementById('current_password').value;
             var newPassword = document.getElementById('new_password').value;
             var confirmNewPassword = document.getElementById('confirm_new_password').value;
-            var errorMsg = document.querySelector('p'); // Assumes there's only one paragraph for error messages
+            var errorMsg = document.querySelector('p'); 
 
-            // Validation checks
+
             if (currentPassword === newPassword) {
                 e.preventDefault();
                 errorMsg.textContent = "New password cannot be the same as the current password.";

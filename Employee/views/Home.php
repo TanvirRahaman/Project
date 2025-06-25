@@ -57,7 +57,7 @@
             <button onclick="location.href='Profile.php'">Profile</button>
             <button onclick="location.href='verify_user.php'">Change Password</button>
 
-            <!-- ✅ Logout Button for Employee -->
+
             <form action="../controllers/logout.php" method="post">
                 <button type="submit" class="logout-btn">🔓 Logout</button>
             </form>

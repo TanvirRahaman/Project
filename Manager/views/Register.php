@@ -85,7 +85,7 @@
 
 <body>
     <div id="example2">
-        <h2>New Manager Registration</h2>
+        <h2>New Employee Registration</h2>
 
         <form id="register" action="../controllers/registerController.php" method="POST" onsubmit="return isValidR();">
             <label for="name">Name:</label><br>
@@ -107,7 +107,7 @@
             <br><br>
 
             <input type="submit" name="submit" value="Submit">
-            <a href="../views/Home.php" class="btn-back" role="button">Back</a>
+            <a href="../views/EmployeeList.php" class="btn-back" role="button">Back</a>
 
         </form>
 

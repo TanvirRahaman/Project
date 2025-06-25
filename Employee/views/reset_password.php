@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $conn->prepare("UPDATE users SET password=? WHERE email=?");
         $stmt->bind_param("ss", $new_password, $email);
         if ($stmt->execute()) {
-            // Clear session reset email and redirect
+
             unset($_SESSION['reset_email']);
             echo "<script>
                 alert('Password changed successfully! Please log in.');

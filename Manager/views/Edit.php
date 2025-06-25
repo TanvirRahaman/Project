@@ -2,7 +2,7 @@
 session_start();
 include('../models/User.php');
 
-// Fetch user data by ID
+
 if (isset($_GET['id'])) {
     $userId = intval($_GET['id']);
     $sql = "SELECT * FROM users WHERE id = $userId";
@@ -17,7 +17,7 @@ if (isset($_GET['id'])) {
     die("Invalid request.");
 }
 
-// Update user info
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $conn->real_escape_string($_POST['name']);
     $email = $conn->real_escape_string($_POST['email']);
