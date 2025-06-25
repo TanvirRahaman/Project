@@ -158,7 +158,10 @@
 </table>
 
 <div class="action-buttons">
-    <button type="submit" name="action" value="delete" class="delete">Delete Selected Users</button>
+    
+
+    <button type="submit" name="action" value="delete" class="delete" onclick="return confirm('Are you sure you want to delete the selected users?')">Delete Selected Users</button>
+    <!--<button type="submit" name="action" value="delete" class="delete">Delete Selected Users</button>-->
     <!--<button type="submit" name="action" value="edit">Edit Selected User</button>-->
     <a href="../views/Home.php" class="btn-back" role="button">Back</a>
 
